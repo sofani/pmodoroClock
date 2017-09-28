@@ -1,0 +1,84 @@
+ body {
+  background-color: #4A4A4A;
+  color: #FAFAFA;
+}
+
+.container-fluid {
+  width: 600px;
+  padding: 0 auto;
+}
+
+#setters {
+  font-size: 2.4em;
+  margin-bottom: 20px;
+}
+
+#break-setter, #session-setter {
+  display: inline-block;
+  width: 250px;
+}
+
+#break-minus, #break-plus, #session-minus, #session-plus {
+  cursor: pointer;
+}
+
+#clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border: 2px solid #FFAD00;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 100;
+}
+
+#session, #time-left {
+  display: block;
+  margin-top: 1.8em;
+  font-family: 'Oxygen', Helvetica, Sans-Serif;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+#filler {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: #FFAD00;
+  z-index: -1;
+}
+
+#reset {
+  width: 300px;
+  margin: 2em auto 0;
+}
+
+#reset-button {
+  outline: none;
+}
+
+h1 {
+  font-family: 'Lobster', Helvetica, Serif;
+  font-size: 3.0em;
+  letter-spacing: 0.2em;
+  color: #FFAD00;
+  margin-bottom: 35px;
+}
+
+p {
+  font-family: 'Oxygen', Helvetica, Serif;
+  font-size: .43em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
