@@ -1,7 +1,7 @@
-// declare timer and running variables
-// to keep track of the running/stopped timer
-var timer;
-var isRunning = false;
+
+
+var timer;               // declare timer and running variables
+var isRunning = false;   //to keep track of the running/stopped timer
 
 // declare variables to keep track of session & break length
 // and the current session/length
@@ -9,7 +9,7 @@ var breakLength = 5 * 60, sessionLength = 25 * 60;
 var currentSession = "session", currentLength = sessionLength;
 
 // declare variable for alarm ringtone
-var bell = new Audio("http://www.oringz.com/oringz-uploads/sounds-929-another-hand-bell.mp3");
+
 
 // formatNumber(num)
 // function to convert all numbers to "##" format
@@ -47,8 +47,7 @@ function timeToSecs(time) {
   while (time.length !== 0) {
       numSecs += parseInt(time.pop()) * Math.pow(60, counter);
       counter++;
-  }
-  
+  } 
   return numSecs;
 }
 
@@ -73,30 +72,22 @@ function clock() {
       var str = secsToTime(secs);
       $('#time-left').text(str);
       setBackground(str);
-      if (secs === 0) {
-      	bell.play();
-      }
-    }
-  // otherwise, timer is up and session needs to switch
-  else
-    {
-      if (currentSession === "session")
-        {
+      
+   } else {    // otherwise, timer is up and session needs to switch
+      if (currentSession === "session") {
           currentSession = "break";
           currentLength = breakLength;
           $('#session').text("Break!");
           $('#filler').css('background-color',"#EB3333");
-        }
-      else
-        {
+      } else {
           currentSession = "session";
           currentLength = sessionLength;
           $('#session').text("Session");
           $('#filler').css('background-color',"#FFAD00");
-        }
-      $('#time-left').text(secsToTime(currentLength));
-      setBackground(secsToTime(currentLength));
-    }
+      }
+       $('#time-left').text(secsToTime(currentLength));
+       setBackground(secsToTime(currentLength));
+   }
 }
 
 // startTime()
@@ -144,32 +135,33 @@ $(document).ready(function() {
   // begin functionality code
   $("#break-minus").click(function() {
     // only run button's code if timer is not running
-    if (!isRunning)
-      {
+    if (!isRunning) {
         var num = parseInt($('#break-length').text());
         num = (num > 0) ? num - 1 : num;
         $("#break-length").text(num);
         breakLength = num * 60;
         // if adjusting break length while in a break session, reset timer
-        if (currentSession === "break") {reset();}
+        if (currentSession === "break") {
+          reset();
+        }
       }
   });
   $("#break-plus").click(function() {
     // only run button's code if timer is not running
-    if (!isRunning)
-      {
+      if (!isRunning) {
         var num = parseInt($('#break-length').text());
         num++;
         $("#break-length").text(num);
         breakLength = num * 60;
         // if adjusting break length while in a break session, reset timer
-        if (currentSession === "break") {reset();}
+        if (currentSession === "break") {
+          reset();
+        }
       }
   });
   $("#session-minus").click(function() {
     // only run button's code if timer is not running
-    if(!isRunning)
-      {
+    if(!isRunning) {
         var num = parseInt($('#session-length').text());
         num = (num > 1) ? num - 1 : num;
         $("#session-length").text(num);
@@ -183,14 +175,15 @@ $(document).ready(function() {
 
   $("#session-plus").click(function() {
     // only run button's code if timer is not running
-    if(!isRunning)
-      {
+    if(!isRunning) {
         var num = parseInt($('#session-length').text());
         num++;
         $("#session-length").text(num);
         sessionLength = num * 60;
         // if adjusting session length while in a session, reset timer
-        if (currentSession === "session") {reset();}
+        if (currentSession === "session") {
+        	reset();
+        }
       }
   });
 });
